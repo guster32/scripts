@@ -41,7 +41,7 @@ buildah run $container apt-get install --yes \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 \
     libegl1-mesa pylint3 xterm python3-subunit mesa-common-dev qemu \
     liblz4-tool device-tree-compiler quilt patchelf zstd htop vim ncdu \
-    libgbm-dev clang
+    libgbm-dev clang bmap-tools
 
 # Optional tools that are useful in development environments
 buildah run $container apt-get install --yes tree tmux
