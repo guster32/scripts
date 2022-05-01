@@ -29,15 +29,6 @@ podman --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
   $GUEST_SCRIPT_DIR/$SCRIPT_NAME
 
-ret=$?
-if [ $ret -ne 0 ]
-then
-  echo "Error:runScript failed: $ret!!"
-else
-  echo "runScript completed!!"
-fi
-
-podman rm $SCRIPT_NAME
 
 
 
