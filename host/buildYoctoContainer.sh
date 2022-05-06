@@ -94,6 +94,7 @@ buildah config --workingdir /home/${user} $container
 #git clone projects
 buildah run $container git clone -b honister --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
 buildah run $container git clone -b honister --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
+buildah run $container git clone -b honister --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
 buildah run $container git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/${user}/meta-rust
 
 buildah run $container chown -R ${user} /home/${user}
