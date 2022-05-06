@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pushd /home/builduser/meta-arcadia
-git stash
+git checkout .
 git pull
 git stash pop
 popd
