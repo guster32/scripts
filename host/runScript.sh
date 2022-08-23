@@ -23,7 +23,7 @@ fi
 HOST_SCRIPT_DIR=$FULL_PATH/../guest
 GUEST_SCRIPT_DIR=/home/builduser/mnt
 
-podman --tmpdir /tmp --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
+podman --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
   --storage-opt overlay.mountopt=nodev,metacopy=on,noxattrs=1 \
   run --name $SCRIPT_NAME -i \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
