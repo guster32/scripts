@@ -12,6 +12,6 @@ qemu-system-x86_64 --enable-kvm \
         -display sdl,gl=on \
         -parallel none \
         -serial stdio \
-	-net user,hostfwd=tcp::7777-:8001 \
+	-net user,hostfwd=tcp::10022-:22 \
         -net nic 
 
