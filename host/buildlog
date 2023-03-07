@@ -1,176 +1,0 @@
-++ buildah from ubuntu:22.04
-Resolved "ubuntu" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
-Trying to pull docker.io/library/ubuntu:22.04...
-Getting image source signatures
-Copying blob sha256:76769433fd8a87dd77a6ce33db12156b1ea8dad3da3a95e7c9c36a47ec17b24c
-Copying config sha256:74f2314a03de34a0a2d552b805411fc9553a02ea71c1291b815b2f645f565683
-Writing manifest to image destination
-Storing signatures
-+ container=ubuntu-working-container
-+ echo 'The container is ubuntu-working-container'
-The container is ubuntu-working-container
-++ buildah mount ubuntu-working-container
-+ mountpoint=/home/gustavobranco/.local/share/containers/storage/overlay/66f7020247c9bc7252f93ceb07f73a332ce4408b2a6b588b2dca8fc89585fb29/merged
-+ echo 'Mount point: /home/gustavobranco/.local/share/containers/storage/overlay/66f7020247c9bc7252f93ceb07f73a332ce4408b2a6b588b2dca8fc89585fb29/merged'
-Mount point: /home/gustavobranco/.local/share/containers/storage/overlay/66f7020247c9bc7252f93ceb07f73a332ce4408b2a6b588b2dca8fc89585fb29/merged
-+ [[ -z '' ]]
-+ aad=/usr/share/squid-deb-proxy-client/apt-avahi-discover
-+ '[' -f /usr/share/squid-deb-proxy-client/apt-avahi-discover ']'
-+ buildah config --env DEBIAN_FRONTEND=noninteractive ubuntu-working-container
-+ buildah config --env TZ=America/Los_Angeles ubuntu-working-container
-+ buildah run ubuntu-working-container apt update
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
-Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
-Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
-Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [107 kB]
-Get:5 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
-Get:6 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
-Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
-Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
-Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [823 kB]
-Get:10 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [883 kB]
-Get:11 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [5557 B]
-Get:12 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [855 kB]
-Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [880 kB]
-Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1189 kB]
-Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1125 kB]
-Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [10.9 kB]
-Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [49.0 kB]
-Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [22.4 kB]
-Fetched 26.1 MB in 4s (6720 kB/s)
-Reading package lists...
-Building dependency tree...
-Reading state information...
-All packages are up to date.
-+ buildah run ubuntu-working-container apt-get install --yes bc bison bsdmainutils build-essential curl locales flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev lib32z1-dev libncurses5-dev git-lfs libsdl1.2-dev libxml2-utils lzop openjdk-8-jdk lzop wget git-core unzip genisoimage sudo socat xterm gawk cpio texinfo gettext vim diffstat chrpath rsync python-mako libusb-1.0-0-dev exuberant-ctags pngcrush schedtool xsltproc zip zlib1g-dev libswitch-perl p7zip-full lsb-release python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa pylint3 xterm python3-subunit mesa-common-dev qemu liblz4-tool device-tree-compiler quilt patchelf zstd htop vim ncdu libgbm-dev clang bmap-tools
-Reading package lists...
-Building dependency tree...
-Reading state information...
-Package python is not available, but is referred to by another package.
-This may mean that the package is missing, has been obsoleted, or
-is only available from another source
-However the following packages replace it:
-  2to3 python2-minimal python2 dh-python python-is-python3
-
-Package python-mako is not available, but is referred to by another package.
-This may mean that the package is missing, has been obsoleted, or
-is only available from another source
-However the following packages replace it:
-  python3-mako
-
-E: Package 'python-mako' has no installation candidate
-E: Package 'python' has no installation candidate
-E: Unable to locate package pylint3
-Error: while running runtime: exit status 100
-+ buildah run ubuntu-working-container apt-get install --yes tree tmux
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following additional packages will be installed:
-  libevent-core-2.1-7 libutempter0
-The following NEW packages will be installed:
-  libevent-core-2.1-7 libutempter0 tmux tree
-0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
-Need to get 579 kB of archives.
-After this operation, 1481 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 libevent-core-2.1-7 amd64 2.1.12-stable-1build3 [93.9 kB]
-Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libutempter0 amd64 1.2.1-2build2 [8848 B]
-Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 tmux amd64 3.2a-4ubuntu0.2 [428 kB]
-Get:4 http://archive.ubuntu.com/ubuntu jammy/universe amd64 tree amd64 2.0.2-1 [47.9 kB]
-debconf: delaying package configuration, since apt-utils is not installed
-Fetched 579 kB in 1s (405 kB/s)
-Selecting previously unselected package libevent-core-2.1-7:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4395 files and directories currently installed.)
-Preparing to unpack .../libevent-core-2.1-7_2.1.12-stable-1build3_amd64.deb ...
-Unpacking libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) ...
-Selecting previously unselected package libutempter0:amd64.
-Preparing to unpack .../libutempter0_1.2.1-2build2_amd64.deb ...
-Unpacking libutempter0:amd64 (1.2.1-2build2) ...
-Selecting previously unselected package tmux.
-Preparing to unpack .../tmux_3.2a-4ubuntu0.2_amd64.deb ...
-Unpacking tmux (3.2a-4ubuntu0.2) ...
-Selecting previously unselected package tree.
-Preparing to unpack .../tree_2.0.2-1_amd64.deb ...
-Unpacking tree (2.0.2-1) ...
-Setting up tree (2.0.2-1) ...
-Setting up libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) ...
-Setting up libutempter0:amd64 (1.2.1-2build2) ...
-Setting up tmux (3.2a-4ubuntu0.2) ...
-Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
-+ buildah run ubuntu-working-container apt-get clean
-+ [[ -z builduser ]]
-+ [[ -z 1000 ]]
-+ [[ -z 1000 ]]
-+ echo 'Using user builduser with UID 1000 and GID 1000'
-Using user builduser with UID 1000 and GID 1000
-+ mkdir -p /home/gustavobranco/.local/share/containers/storage/overlay/66f7020247c9bc7252f93ceb07f73a332ce4408b2a6b588b2dca8fc89585fb29/merged/home/builduser
-+ echo builduser:x:1000:1000:builduser,,,:/home/builduser:/bin/bash
-+ echo builduser:x:1000:
-+ echo 'builduser ALL=(ALL) NOPASSWD: ALL'
-./buildYoctoContainer.sh: line 69: /home/gustavobranco/.local/share/containers/storage/overlay/66f7020247c9bc7252f93ceb07f73a332ce4408b2a6b588b2dca8fc89585fb29/merged/etc/sudoers.d/builduser: No such file or directory
-+ buildah config --env USE_CCACHE=1 ubuntu-working-container
-+ buildah config --env CCACHE_DIR=/home/builduser/.ccache ubuntu-working-container
-+ buildah config --env QT_X11_NO_MITSHM=1 ubuntu-working-container
-+ buildah run ubuntu-working-container locale-gen en_US.UTF-8
-error running container: from /usr/bin/crun creating container for [locale-gen en_US.UTF-8]: executable file `locale-gen` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:22-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah config --env LANG=en_US.UTF-8 ubuntu-working-container
-+ buildah run ubuntu-working-container apt clean
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-+ buildah run ubuntu-working-container apt autoremove
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-+ buildah run ubuntu-working-container rm -rf '/var/lib/apt/lists/*' /tmp/clr-debug-pipe-3317-4656-in /tmp/clr-debug-pipe-3317-4656-out /tmp/dotnet-diagnostic-3317-4656-socket /tmp/gustavobranco-code-zsh /tmp/snap-private-tmp /tmp/ssh-XXXXXXJkkHay /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-bluetooth.service-3jmoEy /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-chronyd.service-qRHtRV /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-colord.service-LvC02h /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-dbus-broker.service-bXEvil /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-fwupd.service-Kq7fNS /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-geoclue.service-EUljSc /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-low-memory-monitor.service-ZbZnIJ /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-ModemManager.service-Byv02D /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-power-profiles-daemon.service-w5JvhV /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-rtkit-daemon.service-rc8qg5 /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-switcheroo-control.service-LziwyM /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-logind.service-bSrhBI /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-oomd.service-IAOCK9 /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-resolved.service-BGa4HH /tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-upower.service-5UnAmA /tmp/tmux-1000 /tmp/vscode-21eb1a052751fd7c511a978902b36a5c2c7094bb.sock /tmp/vscode-typescript1000 /var/tmp/abrt /var/tmp/flatpak-cache-1Z1Q01 /var/tmp/flatpak-cache-CBQF11 /var/tmp/flatpak-cache-E6V9Z1 /var/tmp/flatpak-cache-EHGT01 /var/tmp/flatpak-cache-JQ6N11 /var/tmp/flatpak-cache-VML901 /var/tmp/flatpak-cache-YMWT01 /var/tmp/flatpak-cache-ZDS601 /var/tmp/rpm-tmp.cNZEX1 /var/tmp/rpm-tmp.daM5S2 /var/tmp/rpm-tmp.NJEW33 /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-bluetooth.service-AVaWHo /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-chronyd.service-iAFj4x /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-colord.service-RCDYTK /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-dbus-broker.service-oF57Bb /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-fwupd.service-CxIwt2 /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-geoclue.service-UiVDKa /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-low-memory-monitor.service-ahyksS /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-ModemManager.service-5WC5y9 /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-power-profiles-daemon.service-9Ol56Y /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-rtkit-daemon.service-ItH5tG /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-switcheroo-control.service-HAffig /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-logind.service-eU5hUg /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-oomd.service-C2wLoD /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-systemd-resolved.service-ue2ptm /var/tmp/systemd-private-82287ee6fe7e4b56b2505f4cccf19f2c-upower.service-c5aTmf
-+ buildah config --env HOME=/home/builduser ubuntu-working-container
-+ buildah config --env USER=builduser ubuntu-working-container
-+ buildah config --user builduser ubuntu-working-container
-+ buildah config --workingdir /home/builduser ubuntu-working-container
-+ buildah run ubuntu-working-container git clone -b kirkstone --depth=1 git://git.yoctoproject.org/poky /home/builduser/poky
-error running container: from /usr/bin/crun creating container for [git clone -b kirkstone --depth=1 git://git.yoctoproject.org/poky /home/builduser/poky]: executable file `git` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:25-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah run ubuntu-working-container git clone -b kirkstone --depth=1 https://github.com/openembedded/meta-openembedded.git /home/builduser/meta-openembedded
-error running container: from /usr/bin/crun creating container for [git clone -b kirkstone --depth=1 https://github.com/openembedded/meta-openembedded.git /home/builduser/meta-openembedded]: executable file `git` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:25-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah run ubuntu-working-container git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/builduser/meta-clang
-error running container: from /usr/bin/crun creating container for [git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/builduser/meta-clang]: executable file `git` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:25-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah run ubuntu-working-container git clone -b kirkstone --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia
-error running container: from /usr/bin/crun creating container for [git clone -b kirkstone --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia]: executable file `git` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:25-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah run ubuntu-working-container git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/builduser/meta-rust
-error running container: from /usr/bin/crun creating container for [git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/builduser/meta-rust]: executable file `git` not found in $PATH: No such file or directory
-: exit status 1
-time="2023-03-06T20:50:26-08:00" level=error msg="did not get container create message from subprocess: EOF"
-Error: while running runtime: exit status 1
-+ buildah run ubuntu-working-container chown -R builduser /home/builduser
-/usr/bin/chown: changing ownership of '/home/builduser': Operation not permitted
-Error: while running runtime: exit status 1
-+ buildah commit --format docker ubuntu-working-container yocto_ubuntu_22.04:latest
-Getting image source signatures
-Copying blob sha256:202fe64c3ce39b94d8beda7d7506ccdfcf7a59f02f17c915078e4c62b5c2ed11
-Copying blob sha256:d8b8b263e22abe9a148090a3c0e49c5385a86cbeabcef92ea202f61a5bb9594b
-Copying config sha256:d255131304ec3f038d4b12f99dba9111c9258dde37b7610bea0e43715e8cf728
-Writing manifest to image destination
-Storing signatures
-d255131304ec3f038d4b12f99dba9111c9258dde37b7610bea0e43715e8cf728
-+ buildah unmount ubuntu-working-container
