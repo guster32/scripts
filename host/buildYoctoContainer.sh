@@ -29,7 +29,7 @@ buildah run $container apt update
 # Install the software we need for Yocto and some extra tools.
 buildah run $container apt-get install --yes \
     bc bison bsdmainutils build-essential curl locales \
-    flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev \
+    flex g++-multilib gcc gcc-multilib git gnupg gperf lib32ncurses5-dev \
     lib32z1-dev libncurses5-dev git-lfs \
     libsdl1.2-dev libxml2-utils lzop \
     openjdk-8-jdk lzop wget git-core unzip \
@@ -41,7 +41,7 @@ buildah run $container apt-get install --yes \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 \
     libegl1-mesa pylint xterm python3-subunit mesa-common-dev qemu \
     liblz4-tool device-tree-compiler quilt patchelf zstd htop vim ncdu \
-    libgbm-dev clang bmap-tools
+    libgbm-dev clang bmap-tools file
 
 # Optional tools that are useful in development environments
 buildah run $container apt-get install --yes tree tmux
@@ -50,7 +50,7 @@ buildah run $container apt-get clean
 
 if [[ -z "${user}" ]]; then
   user=$USER
-fi
+  fi
 
 if [[ -z "${uid}" ]]; then
   uid=$(id -u)
