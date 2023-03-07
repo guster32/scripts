@@ -35,11 +35,11 @@ buildah run $container apt-get install --yes \
     openjdk-8-jdk lzop wget git-core unzip \
     genisoimage sudo socat xterm gawk cpio texinfo \
     gettext vim diffstat chrpath rsync \
-    python-mako libusb-1.0-0-dev exuberant-ctags \
+    python3-mako libusb-1.0-0-dev exuberant-ctags \
     pngcrush schedtool xsltproc zip zlib1g-dev libswitch-perl \
-    p7zip-full lsb-release python python3 python3-pip python3-pexpect \
+    p7zip-full lsb-release python3 python3-pip python3-pexpect \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 \
-    libegl1-mesa pylint3 xterm python3-subunit mesa-common-dev qemu \
+    libegl1-mesa pylint xterm python3-subunit mesa-common-dev qemu \
     liblz4-tool device-tree-compiler quilt patchelf zstd htop vim ncdu \
     libgbm-dev clang bmap-tools
 
