@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FULL_PATH=$(dirname "$0")
+SCRIPT_NAME=build-yocto-arcadia-x86_64.sh
+
+$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 latest
+
+ret=$?
+if [ $ret -ne 0 ]
+then
+  echo "Error:runScript failed: $ret!!"
+else
+  rm -rf $HOME/$SDK_FILE
+  buildah commit --format docker $SCRIPT_NAME arcadia:x86_64
+  echo "runScript completed!!"
+fi
+
+podman rm $SCRIPT_NAME
