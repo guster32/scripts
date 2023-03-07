@@ -101,5 +101,5 @@ buildah run $container git clone -b master --depth=1 https://github.com/meta-rus
 buildah run $container chown -R ${user} /home/${user}
 
 # Finally save the running container to an image
-buildah commit --format docker $container yocto_ubuntu_20.04:latest
+buildah commit --format docker $container yocto_ubuntu_22.04:latest
 buildah unmount $container
