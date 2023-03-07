@@ -4,7 +4,7 @@ set -x
 #user=builduser uid=1000 gid=1000 buildah unshare ./buildYoctoContainer.sh 2>&1 | tee buildlog
 
 
-container=$(buildah from ubuntu:20.04)
+container=$(buildah from ubuntu:22.04)
 echo "The container is $container"
 
 mountpoint=$(buildah mount ${container})
@@ -92,10 +92,10 @@ buildah config --user ${user} $container
 buildah config --workingdir /home/${user} $container
 
 #git clone projects
-buildah run $container git clone -b honister --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
-buildah run $container git clone -b honister --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
-buildah run $container git clone -b honister --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
-buildah run $container git clone -b honister --depth=1 https://github.com/guster32/meta-arcadia.git /home/${user}/meta-arcadia
+buildah run $container git clone -b kirkstone --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
+buildah run $container git clone -b kirkstone --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
+buildah run $container git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
+buildah run $container git clone -b kirkstone --depth=1 https://github.com/guster32/meta-arcadia.git /home/${user}/meta-arcadia
 buildah run $container git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/${user}/meta-rust
 
 buildah run $container chown -R ${user} /home/${user}
