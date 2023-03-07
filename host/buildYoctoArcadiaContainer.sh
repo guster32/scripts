@@ -10,7 +10,6 @@ if [ $ret -ne 0 ]
 then
   echo "Error:runScript failed: $ret!!"
 else
-  rm -rf $HOME/$SDK_FILE
   buildah commit --format docker $SCRIPT_NAME arcadia:x86_64
   echo "runScript completed!!"
 fi
