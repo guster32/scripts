@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FULL_PATH=$(dirname "$0")
-SCRIPT_NAME=build-yocto-arcadia-x86_64.sh
+SCRIPT_NAME=createArcadiaContainer-x86_64.sh
 
 $FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 latest
 
