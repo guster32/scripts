@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-#user=builduser uid=1000 gid=1000 buildah unshare ./buildYoctoContainer.sh 2>&1 | tee buildlog
+#user=builduser uid=1000 gid=1000 buildah unshare ./createYoctoContainer.sh 2>&1 | tee buildlog
 
 
 container=$(buildah from ubuntu:22.04)
@@ -41,7 +41,7 @@ buildah run $container apt-get install --yes \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 \
     libegl1-mesa pylint xterm python3-subunit mesa-common-dev qemu \
     liblz4-tool device-tree-compiler quilt patchelf zstd htop vim ncdu \
-    libgbm-dev clang bmap-tools file
+    libgbm-dev clang bmap-tools file pkg-config
 
 # Optional tools that are useful in development environments
 buildah run $container apt-get install --yes tree tmux
