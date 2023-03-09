@@ -94,7 +94,6 @@ buildah config --workingdir /home/${user} $container
 #git clone projects
 buildah run $container git clone -b kirkstone --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
 buildah run $container git clone -b kirkstone --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
-buildah run $container git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
 
 buildah run $container chown -R ${user} /home/${user}
 
