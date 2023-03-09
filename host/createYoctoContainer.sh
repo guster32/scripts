@@ -99,5 +99,5 @@ buildah run $container git clone -b kirkstone --depth=1 https://github.com/kraj/
 buildah run $container chown -R ${user} /home/${user}
 
 # Finally save the running container to an image
-buildah commit --format docker $container yocto_ubuntu_22.04:latest
+buildah commit --storage-driver devicemapper --format docker $container yocto_ubuntu_22.04:latest
 buildah unmount $container

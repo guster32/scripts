@@ -24,6 +24,7 @@ HOST_SCRIPT_DIR=$FULL_PATH/../guest
 GUEST_SCRIPT_DIR=/home/builduser/mnt
 
 podman --storage-driver=devicemapper \
+  --storage-opt dm.basesize=100G \
   --storage-opt dm.fs=ext4 \
   run --name $SCRIPT_NAME -i \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
