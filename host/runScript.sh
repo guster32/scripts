@@ -23,16 +23,8 @@ fi
 HOST_SCRIPT_DIR=$FULL_PATH/../guest
 GUEST_SCRIPT_DIR=/home/builduser/mnt
 
-podman --storage-driver=devicemapper \
-  --storage-opt dm.basesize=100G \
-  --storage-opt dm.fs=ext4 \
+podman --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
+  --storage-opt overlay.mountopt=nodev,metacopy=on,noxattrs=1 \
   run --name $SCRIPT_NAME -i \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
   $GUEST_SCRIPT_DIR/$SCRIPT_NAME
-
-
-
-
-
-
-

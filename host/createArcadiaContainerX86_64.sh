@@ -10,7 +10,7 @@ if [ $ret -ne 0 ]
 then
   echo "Error:runScript failed: $ret!!"
 else
-  buildah commit --driver devicemapper --format docker $SCRIPT_NAME arcadia:x86_64
+  buildah commit --format docker $SCRIPT_NAME arcadia:x86_64
   echo "runScript completed!!"
 fi
 
