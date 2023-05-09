@@ -25,6 +25,6 @@ GUEST_SCRIPT_DIR=/home/builduser/mnt
 
 podman --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
   --storage-opt overlay.mountopt=nodev,metacopy=on,noxattrs=1 \
-  run --name $SCRIPT_NAME -i \
+  run --ulimit nofile=65535:65535 --pids-limit=0 --name $SCRIPT_NAME -i \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
   $GUEST_SCRIPT_DIR/$SCRIPT_NAME
