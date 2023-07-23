@@ -28,7 +28,7 @@ buildah run $container apt update
 
 # Install the software we need for Yocto and some extra tools.
 buildah run $container apt-get install --yes \
-    bc bison bsdmainutils build-essential curl locales \
+    bc bison bsdmainutils libssl-dev build-essential curl locales \
     flex g++-multilib gcc gcc-multilib git gnupg gperf lib32ncurses5-dev \
     lib32z1-dev libncurses5-dev git-lfs \
     libsdl1.2-dev libxml2-utils lzop \
