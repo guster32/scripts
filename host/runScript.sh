@@ -21,10 +21,33 @@ if [ -z $IMG_TAG ]; then
 fi
 
 HOST_SCRIPT_DIR=$FULL_PATH/../guest
-GUEST_SCRIPT_DIR=/home/builduser/mnt
+HOST_DL_DIR=$FULL_PATH/../shared/downloads
+HOST_SSTATE_DIR=$FULL_PATH/../shared/sstate-cache
+HOST_BUILD_DIR=$FULL_PATH/../shared/${SCRIPT_NAME%.sh}/build
+HOST_TMP_DIR=$FULL_PATH/../shared/${SCRIPT_NAME%.sh}/tmp
 
-podman --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs \
-  --storage-opt overlay.mountopt=nodev,metacopy=on,noxattrs=1 \
-  run --ulimit nofile=65535:65535 --pids-limit=0 --name $SCRIPT_NAME -i \
-  -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z $IMG_NAME:$IMG_TAG \
+
+GUEST_SCRIPT_DIR=/home/builduser/mnt/scripts
+GUEST_DL_DIR=/home/builduser/mnt/downloads
+GUEST_SSTATE_DIR=/home/builduser/mnt/sstate-cache
+GUEST_BUILD_DIR=/home/builduser/mnt/build
+GUEST_TMP_DIR=/tmp
+
+mkdir -p $HOST_DL_DIR
+mkdir -p $HOST_SSTATE_DIR
+mkdir -p $HOST_BUILD_DIR
+mkdir -p $HOST_TMP_DIR
+
+chmod 777 $HOST_DL_DIR
+chmod 777 $HOST_SSTATE_DIR
+chmod 777 $HOST_BUILD_DIR
+chmod 777 $HOST_TMP_DIR
+
+podman run --rm --ulimit nofile=899999:899999 --pids-limit=0 -i \
+  -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z \
+  -v $HOST_DL_DIR:$GUEST_DL_DIR:Z \
+  -v $HOST_SSTATE_DIR:$GUEST_SSTATE_DIR:Z \
+  -v $HOST_BUILD_DIR:$GUEST_BUILD_DIR:Z \
+  -v $HOST_TMP_DIR:$GUEST_TMP_DIR:Z \
+  $IMG_NAME:$IMG_TAG \
   $GUEST_SCRIPT_DIR/$SCRIPT_NAME
