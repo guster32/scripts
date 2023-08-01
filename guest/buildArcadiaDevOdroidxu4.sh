@@ -11,4 +11,4 @@ cp /home/builduser/mnt/scripts/odroidxu4_bblayers.conf /home/builduser/mnt/build
 cp /home/builduser/mnt/scripts/odroidxu4_local.conf /home/builduser/mnt/build/conf/local.conf
 
 bitbake core-image-arcadia-dev
-#bitbake core-image-arcadia-dev -c populate_sdk
+bitbake core-image-arcadia-dev -c populate_sdk
