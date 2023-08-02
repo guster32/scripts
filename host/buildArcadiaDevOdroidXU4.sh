@@ -6,7 +6,7 @@ IMG_MAP=core-image-arcadia-dev-odroid-xu4.wic.bmap
 SDK_FILE=oecore-x86_64-cortexa15t2hf-neon-vfpv4-toolchain-nodistro.0.sh 
 SCRIPT_NAME=buildArcadiaDevOdroidxu4.sh
 
-$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 latest
+$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 kirkstone
 
 ret=$?
 if [ $ret -ne 0 ]
