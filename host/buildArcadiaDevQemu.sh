@@ -7,7 +7,7 @@ SCRIPT_NAME=buildArcadiaDevQemu.sh
 IMG_DIR="${HOME}/${IMG}"
 SDK_DIR="${HOME}/${IMG}_sdk"
 
-$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 kirkstone
+$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 mickledore
 
 ret=$?
 if [ $ret -ne 0 ]

@@ -29,9 +29,8 @@ buildah run $container apt update
 # Install the software we need for Yocto and some extra tools.
 buildah run $container apt-get install --yes \
     bc bison bsdmainutils libssl-dev build-essential curl locales \
-    flex g++-multilib gcc gcc-multilib git gnupg gperf lib32ncurses5-dev \
-    lib32z1-dev libncurses5-dev git-lfs \
-    libsdl1.2-dev libxml2-utils lzop \
+    flex g++-multilib gcc gcc-multilib git graphviz gnupg gperf lib32ncurses5-dev \
+    lib32z1-dev libncurses5-dev git-lfs libsdl1.2-dev libxml2-utils lzop \
     openjdk-8-jdk lzop wget git-core unzip \
     genisoimage sudo socat xterm gawk cpio texinfo \
     gettext vim diffstat chrpath rsync \
@@ -92,12 +91,13 @@ buildah config --user ${user} $container
 buildah config --workingdir /home/${user} $container
 
 #git clone projects
-buildah run $container git clone -b kirkstone --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
-buildah run $container git clone -b kirkstone --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
-buildah run $container git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
+buildah run $container git clone -b mickledore --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
+buildah run $container git clone -b mickledore --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
+buildah run $container git clone -b mickledore --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
+buildah run $container git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/${user}/meta-rust
 
 buildah run $container chown -R ${user} /home/${user}
 
 # Finally save the running container to an image
-buildah commit --format docker $container yocto_ubuntu_22.04:kirkstone
+buildah commit --format docker $container yocto_ubuntu_22.04:mickledore
 buildah unmount $container

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-git clone -b kirkstone --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia
-git clone -b master --depth=1 https://github.com/meta-rust/meta-rust.git /home/builduser/meta-rust
-git clone -b kirkstone --depth=1 https://github.com/kraj/meta-clang.git /home/builduser/meta-clang
+git clone -b mickledore --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia
 
 cd /home/builduser/poky
 source oe-init-build-env /home/builduser/mnt/build
