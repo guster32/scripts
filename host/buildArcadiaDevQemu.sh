@@ -17,7 +17,7 @@ else
   rm -rf $HOME/$IMG_DIR
   rm -rf $HOME/$SDK_DIR
   mkdir -p $SDK_DIR
-  cp -r ../shared/${SCRIPT_NAME%.sh}/build/tmp/deploy/images/$IMG $HOME/
-  cp ../shared/${SCRIPT_NAME%.sh}/build/tmp/deploy/sdk/$SDK_FILE $SDK_DIR/
+  cp -r ../.build/${SCRIPT_NAME%.sh}/build/tmp/deploy/images/$IMG $HOME/
+  cp ../.build/${SCRIPT_NAME%.sh}/build/tmp/deploy/sdk/$SDK_FILE $SDK_DIR/
   echo "runScript completed!!"
 fi

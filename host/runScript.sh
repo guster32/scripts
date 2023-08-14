@@ -21,10 +21,10 @@ if [ -z $IMG_TAG ]; then
 fi
 
 HOST_SCRIPT_DIR=$FULL_PATH/../guest
-HOST_DL_DIR=$FULL_PATH/../shared/downloads
-HOST_SSTATE_DIR=$FULL_PATH/../shared/sstate-cache
-HOST_BUILD_DIR=$FULL_PATH/../shared/${SCRIPT_NAME%.sh}/build
-HOST_TMP_DIR=$FULL_PATH/../shared/${SCRIPT_NAME%.sh}/tmp
+HOST_DL_DIR=$FULL_PATH/../.build/downloads
+HOST_SSTATE_DIR=$FULL_PATH/../.build/sstate-cache
+HOST_BUILD_DIR=$FULL_PATH/../.build/${SCRIPT_NAME%.sh}/build
+HOST_TMP_DIR=$FULL_PATH/../.build/${SCRIPT_NAME%.sh}/tmp
 
 
 GUEST_SCRIPT_DIR=/home/builduser/mnt/scripts

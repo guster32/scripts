@@ -19,9 +19,9 @@ else
   rm -rf $SDK_DIR
   mkdir -p $IMG_DIR
   mkdir -p $SDK_DIR
-  cp ../shared/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/images/odroid-xu4/$IMG $IMG_DIR
-  cp ../shared/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/images/odroid-xu4/$IMG_MAP $IMG_DIR
-  cp ../shared/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/sdk/$SDK_FILE $SDK_DIR/
+  cp ../.build/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/images/odroid-xu4/$IMG $IMG_DIR
+  cp ../.build/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/images/odroid-xu4/$IMG_MAP $IMG_DIR
+  cp ../.build/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/sdk/$SDK_FILE $SDK_DIR/
   echo "sudo bmaptool copy --bmap core-image-arcadia-dev-odroid-xu4.wic.bmap core-image-arcadia-dev-odroid-xu4.wic.xz  /dev/[USB_BLOCK]\n" >> $IMG_DIR/readme
   echo "wpa_passphrase [SSID] >> /etc/wpa_supplicant.conf\n" >> $IMG_DIR/readme
   echo "...type in the passphrase and hit enter...\n"  >> $IMG_DIR/readme
