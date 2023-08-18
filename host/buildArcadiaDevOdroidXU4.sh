@@ -3,7 +3,7 @@
 FULL_PATH=$(dirname "$0")
 IMG=core-image-arcadia-dev-odroid-xu4.wic.xz
 IMG_MAP=core-image-arcadia-dev-odroid-xu4.wic.bmap
-SDK_FILE=oecore-x86_64-cortexa15t2hf-neon-vfpv4-toolchain-nodistro.0.sh 
+SDK_FILE=oecore-x86_64-cortexa15t2hf-neon-vfpv4-toolchain-1.0.sh
 SCRIPT_NAME=buildArcadiaDevOdroidxu4.sh
 IMG_DIR="${HOME}/odroidxu4"
 SDK_DIR="${HOME}/odroidxu4_sdk"
