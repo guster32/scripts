@@ -1,3 +1,5 @@
+#!/bin/bash
+
 qemu-system-x86_64 --enable-kvm \
         -cpu IvyBridge \
         -machine type=pc,accel=kvm \
@@ -13,5 +15,5 @@ qemu-system-x86_64 --enable-kvm \
         -parallel none \
         -serial stdio \
 	-net user,hostfwd=tcp::10022-:22,hostfwd=::13000-:3000 \
-        -net nic 
+        -net nic
 
