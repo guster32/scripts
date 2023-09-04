@@ -23,7 +23,8 @@ else
   cp ../.build/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/images/odroid-xu4/$IMG_MAP $IMG_DIR
   cp ../.build/${SCRIPT_NAME%.sh}/build/tmp-glibc/deploy/sdk/$SDK_FILE $SDK_DIR/
   echo "sudo bmaptool copy --bmap core-image-arcadia-dev-odroid-xu4.wic.bmap core-image-arcadia-dev-odroid-xu4.wic.xz  /dev/[USB_BLOCK]\n" >> $IMG_DIR/readme
-  echo "wpa_passphrase [SSID] >> /etc/wpa_supplicant.conf\n" >> $IMG_DIR/readme
-  echo "...type in the passphrase and hit enter...\n"  >> $IMG_DIR/readme
+  echo "wpa_passphrase [SSID] >> /etc/wpa_supplicant.conf" >> $IMG_DIR/readme
+  echo "...type in the passphrase and hit enter..."  >> $IMG_DIR/readme
+  echo "systemctl enable network-wireless@[wireless-if].service" >> $IMG_DIR/readme
   echo "runScript completed!!"
 fi
