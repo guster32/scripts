@@ -91,12 +91,12 @@ buildah config --user ${user} $container
 buildah config --workingdir /home/${user} $container
 
 #git clone projects
-buildah run $container git clone -b mickledore --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
-buildah run $container git clone -b mickledore --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
-buildah run $container git clone -b mickledore --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
+buildah run $container git clone -b nanbield --depth=1 git://git.yoctoproject.org/poky /home/${user}/poky
+buildah run $container git clone -b nanbield --depth=1 https://github.com/openembedded/meta-openembedded.git /home/${user}/meta-openembedded
+buildah run $container git clone -b nanbield --depth=1 https://github.com/kraj/meta-clang.git /home/${user}/meta-clang
 
 buildah run $container chown -R ${user} /home/${user}
 
 # Finally save the running container to an image
-buildah commit --format docker $container yocto_ubuntu_22.04:mickledore
+buildah commit --format docker $container yocto_ubuntu_22.04:nanbield
 buildah unmount $container

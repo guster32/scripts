@@ -2,12 +2,12 @@
 
 FULL_PATH=$(dirname "$0")
 IMG=qemux86-64
-SDK_FILE=oecore-x86_64-core2-64-toolchain-1.0.sh
+SDK_FILE=oecore-core-image-arcadia-dev-x86_64-core2-64-qemux86-64-toolchain-1.0.sh
 SCRIPT_NAME=buildArcadiaDevQemu.sh
 IMG_DIR="${HOME}/${IMG}"
 SDK_DIR="${HOME}/${IMG}_sdk"
 
-$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 mickledore
+$FULL_PATH/runScript.sh $SCRIPT_NAME yocto_ubuntu_22.04 nanbield
 
 ret=$?
 if [ $ret -ne 0 ]

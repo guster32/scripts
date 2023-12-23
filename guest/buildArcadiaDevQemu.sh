@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone -b mickledore --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia
+#git clone -b nanbield --depth=1 https://github.com/guster32/meta-arcadia.git /home/builduser/meta-arcadia
 
 cd /home/builduser/poky
 source oe-init-build-env /home/builduser/mnt/build

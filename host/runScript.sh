@@ -45,6 +45,8 @@ chmod 777 $HOST_TMP_DIR
 
 echo "Setting up container. Please standby..."
 podman run --rm --ulimit nofile=899999:899999 --pids-limit=0 -i \
+  -v $HOST_SCRIPT_DIR/../../meta-arcadia:/home/builduser/meta-arcadia:Z \
+  -v $HOST_SCRIPT_DIR/../../meta-odroid:/home/builduser/meta-odroid:Z \
   -v $HOST_SCRIPT_DIR:$GUEST_SCRIPT_DIR:Z \
   -v $HOST_DL_DIR:$GUEST_DL_DIR:Z \
   -v $HOST_SSTATE_DIR:$GUEST_SSTATE_DIR:Z \
